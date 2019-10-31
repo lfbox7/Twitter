@@ -8,9 +8,6 @@ Twitter is an app that allows users to browse tweets from the [The Twitter API](
 ### User Stories
 
 #### REQUIRED
-
-The following **required** functionality is completed:
-
 - [x] User sees app icon in home screen and styled launch screen. (1pt)
 - [x] User can log in. (1pt)
 - [x] User can log out. (1pt)
@@ -18,9 +15,6 @@ The following **required** functionality is completed:
 - [x] User can view tweets with the user profile picture, username, and tweet text. (6pts)
 
 #### Bonus
-
-The following **bonus** features are implemented:
-
 - [x] User can pull to refresh. (1pt)
 - [x] User can load past tweets infinitely. (2pts)
 
