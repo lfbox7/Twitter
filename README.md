@@ -27,9 +27,9 @@ The following **bonus** features are implemented:
 ### App Walkthough GIF
 Here's a walkthrough of implemented user stories:
 
-<img src='https://recordit.co/1pYB9zPCl.gif' width=250>
+<img src='http://g.recordit.co/f1pYB9zPCl.gif' width=250>
 
-GIF created with [RecordIt](http://recordit.co/1pYB9zPCl).
+GIF created with [RecordIt](http://g.recordit.co/f1pYB9zPCl.gif).
 
 ### Notes
 No challenges met with this app.
