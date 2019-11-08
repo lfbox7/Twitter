@@ -16,6 +16,7 @@
 		B8721D302369E7A0000C0CDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8721D2F2369E7A0000C0CDB /* LoginViewController.swift */; };
 		B8721D322369FDC7000C0CDB /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8721D312369FDC7000C0CDB /* HomeTableViewController.swift */; };
 		B8721D34236A626D000C0CDB /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8721D33236A626D000C0CDB /* TweetCell.swift */; };
+		B8D5F0CD2373ACA800C0E52E /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D5F0CC2373ACA800C0E52E /* TweetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		B8721D2F2369E7A0000C0CDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B8721D312369FDC7000C0CDB /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		B8721D33236A626D000C0CDB /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		B8D5F0CC2373ACA800C0E52E /* TweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
 		C2D685C92646819A9A0DC30C /* Pods-Twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +82,7 @@
 				6EBCF52921DF07FC00451C03 /* Main.storyboard */,
 				B8721D33236A626D000C0CDB /* TweetCell.swift */,
 				B8721D312369FDC7000C0CDB /* HomeTableViewController.swift */,
+				B8D5F0CC2373ACA800C0E52E /* TweetViewController.swift */,
 				B8721D2F2369E7A0000C0CDB /* LoginViewController.swift */,
 				6EBCF54321E047A500451C03 /* TwitterAPICaller.swift */,
 				6EBCF52521DF07FC00451C03 /* AppDelegate.swift */,
@@ -211,6 +214,7 @@
 			files = (
 				B8721D322369FDC7000C0CDB /* HomeTableViewController.swift in Sources */,
 				B8721D302369E7A0000C0CDB /* LoginViewController.swift in Sources */,
+				B8D5F0CD2373ACA800C0E52E /* TweetViewController.swift in Sources */,
 				B8721D34236A626D000C0CDB /* TweetCell.swift in Sources */,
 				6EBCF54421E047A500451C03 /* TwitterAPICaller.swift in Sources */,
 				6EBCF52621DF07FC00451C03 /* AppDelegate.swift in Sources */,

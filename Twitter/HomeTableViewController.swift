@@ -13,12 +13,19 @@ class HomeTableViewController: UITableViewController {
     var tweetArray = [NSDictionary]()
     var numberOfTweets: Int!
     var tweetRefreshControl = UIRefreshControl()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTweets()
         tweetRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         tableView.refreshControl = tweetRefreshControl
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 150
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadTweets()
     }
 
     @objc func loadTweets() {
@@ -75,6 +82,8 @@ class HomeTableViewController: UITableViewController {
         cell.userNameLabel.text = user["name"] as? String
         cell.tweetContent.text = (tweetArray[indexPath.row]["text"] as! String)
         
+        cell.timeLabel.text = getRelativeTime(timeString: (tweetArray[indexPath.row]["created_at"] as? String)!)
+        
         let imageUrl = URL(string: (user["profile_image_url_https"] as? String)!)
         let data = try? Data(contentsOf: imageUrl!)
         
@@ -82,7 +91,13 @@ class HomeTableViewController: UITableViewController {
             cell.profileImageView.image = UIImage(data: imageData)
         }
         
-        "profile_image_url_https"
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        //cell.favCount.text = (tweetArray[indexPath.row]["favorite_count"] as? String)!
+        
+        cell.setRetweet(tweetArray[indexPath.row]["retweeted"] as! Bool)
+        //cell.retweetCount.text = (tweetArray[indexPath.row]["retweet_count"] as? String)!
+        
         return cell
     }
     
@@ -99,5 +114,34 @@ class HomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return tweetArray.count
+    }
+    
+    func getRelativeTime(timeString: String) -> String{
+        let time: Date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+        time = dateFormatter.date(from: timeString)!
+        return time.timeAgoDisplay()
+    }
+}
+
+extension Date {
+    func timeAgoDisplay() -> String {
+        let secondsAgo = Int(Date().timeIntervalSince(self))
+        let minute = 60
+        let hour = 60 * minute
+        let day = 24 * hour
+        let week = 7 * day
+        if secondsAgo < minute {
+            return "\(secondsAgo) sec ago"
+        } else if secondsAgo < hour {
+            return "\(secondsAgo / minute) min ago"
+        } else if secondsAgo < day {
+            return "\(secondsAgo / hour) hrs ago"
+        } else if secondsAgo < week {
+            return "\(secondsAgo / day) days ago"
+        }
+
+        return "\(secondsAgo / week) weeks ago"
     }
 }
