@@ -95,4 +95,13 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
             failure(error)
         })
     }
+    func profile(screenName: String,success: @escaping () -> (), failure: @escaping (Error) -> ()){
+        let url = "https://api.twitter.com/1.1/account/settings.json"
+        TwitterAPICaller.client?.post(url, parameters: ["screen_name":screenName], progress: nil,success: {
+           (task: URLSessionDataTask, response: Any?) in
+                success()
+            }, failure: { (task: URLSessionDataTask?, error: Error) in
+                failure(error)
+            })
+    }
 }

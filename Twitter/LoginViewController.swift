@@ -2,7 +2,7 @@
 //  LoginViewController.swift
 //  Twitter
 //
-//  Created by Leonard Box on 10/30/19.
+//  Created by Leonard Box on 11/13/19.
 //  Copyright © 2019 Dan. All rights reserved.
 //
 
@@ -11,37 +11,41 @@ import UIKit
 class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+            super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if UserDefaults.standard.bool(forKey: "userLoggedIn") == true {
-            self.performSegue(withIdentifier: "loginToHome", sender: self)
+            // Do any additional setup after loading the view.
         }
-    }
-    
-    @IBAction func onLoginButton(_ sender: Any) {
         
-        let twitterUrl = "https://api.twitter.com/oauth/request_token"
+        override func viewDidAppear(_ animated: Bool) {
+            if UserDefaults.standard.bool(forKey: "Home") == true {
+                
+                
+                }
+        }
         
-        TwitterAPICaller.client?.login(url: twitterUrl, success: {
-            UserDefaults.standard.set(true, forKey: "userLoggedIn")
-            self.performSegue(withIdentifier: "loginToHome", sender: self)
-        }, failure: { (Error) in
-            print("Could not login")
-        })
-    }
-    
-    /*
-    // MARK: - Navigation
+        @IBAction func onLoginButton(_ sender: Any) {
+            
+            let twitterUrl = "https://api.twitter.com/oauth/request_token"
+            
+            TwitterAPICaller.client?.login(url: twitterUrl, success: {
+                UserDefaults.standard.set(true, forKey: "userLoggedIn")
+                //self.performSegue(withIdentifier: "tweetSegue", sender: self)
+                let TweetTabBar = self.storyboard?.instantiateViewController(withIdentifier: "TweetTabBar")
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window?.rootViewController = TweetTabBar
+                
+            }, failure: { (Error) in
+                print("Could not login")
+            })
+        }
+        
+        /*
+        // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        // In a storyboard-based application, you will often want to do a little preparation before navigation
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            // Get the new view controller using segue.destination.
+            // Pass the selected object to the new view controller.
+        }
+        */
     }
-    */
-
-}

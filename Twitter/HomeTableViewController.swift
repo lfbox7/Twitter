@@ -18,7 +18,7 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
         loadTweets()
         tweetRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
-        tableView.refreshControl = tweetRefreshControl
+        self.tableView.refreshControl = tweetRefreshControl
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 150
     }
@@ -70,8 +70,12 @@ class HomeTableViewController: UITableViewController {
     
     @IBAction func onLogOut(_ sender: Any) {
         TwitterAPICaller.client?.logout()
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
         UserDefaults.standard.set(false, forKey: "userLoggedIn")
+        
+        let LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = LoginViewController
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,14 +97,13 @@ class HomeTableViewController: UITableViewController {
         
         cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
         cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
-        //cell.favCount.text = (tweetArray[indexPath.row]["favorite_count"] as? String)!
-        
+        cell.favCount.text = String(tweetArray[indexPath.row]["favorite_count"] as! Int)
+         
         cell.setRetweet(tweetArray[indexPath.row]["retweeted"] as! Bool)
-        //cell.retweetCount.text = (tweetArray[indexPath.row]["retweet_count"] as? String)!
+        cell.retweetCount.text = String(tweetArray[indexPath.row]["retweet_count"] as! Int)
         
         return cell
     }
-    
     
     
     
