@@ -21,15 +21,15 @@ The following **required** functionality is completed:
 - [x] User can pull to refresh. (1pt)
 - [x] User can load past tweets infinitely. (2pts)
 - [x] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of 140) (2pts)
-- [ ] User can view their profile in a profile tab. (3pts)
+- [x] User can view their profile in a profile tab. (3pts)
 - [ ] User sees embedded images in tweet if available. (3pts)
 
 ### App Walkthough GIF
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/f1pYB9zPCl.gif' width=250>
+<img src='https://recordit.co/ue4E0j41ca.gif' width=250>
 
-GIF created with [RecordIt](http://g.recordit.co/f1pYB9zPCl.gif).
+GIF created with [RecordIt](https://recordit.co/ue4E0j41ca.gif).
 
 ### Notes
 No challenges met with this app.
